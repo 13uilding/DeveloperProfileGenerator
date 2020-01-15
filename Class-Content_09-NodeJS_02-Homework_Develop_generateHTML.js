@@ -173,7 +173,11 @@ function generateHTML(data) {
           </style>
       </head>
       <body>
-        
+      <div class= "wrapper">
+        <header class= "photo-header">
+            <img src=${data.profile.img}/>
+        </header>
+      </div>
       </body>
     </html>`
 }
