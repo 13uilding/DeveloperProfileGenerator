@@ -12,7 +12,9 @@ init();
 async function init() {
   try {
     await getUser();
-    console.log(generateHTML.generateHTML(profile));
+    fs.writeFile("test.html", generateHTML.generateHTML(profile), err => {
+      if (err) throw err;
+    });
   } catch (error) {
     console.log(error)
   }
@@ -35,8 +37,7 @@ async function getUser() {
     ]);
       const { data } = await axios.get(`${baseURL}${username}?per_page=100`);
       const { data: starData } = await axios.get(`${baseURL}${username}/starred`);
-
-      let {avatar_url: image, login, location, html_url: github, blog, bio, followers, following} = data;
+      let {avatar_url: image, login, location, html_url: github, blog, bio, followers, following, public_repos} = data;
       profile = {
         image,
         username,
@@ -47,6 +48,7 @@ async function getUser() {
         followers,
         following,
         color,
+        public_repos,
         locationURL: "https://goo.gl/maps/xS54udcr7Q3ZvtF98", // Set up the api
       };
       profile.stars = starData.length;    

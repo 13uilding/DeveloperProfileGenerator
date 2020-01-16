@@ -190,14 +190,55 @@ function generateHTML(data) {
               <h1>Hello!</h1>
               <h2>My GitHub username is ${data.username}</h2>
               <div class="links-nav">
-                  <a class="nav-link" href=${data.locationURL}>${data.location}</a>
-                  <a class="nav-link" href=${data.github}>GitHub</a>
-                  <a class="nav-link" href=${data.blog}>Blog</a>
+                  <a class="nav-link" target="_blank" href=${data.locationURL}>${data.location}</a>
+                  <a class="nav-link" target="_blank" href=${data.github}>GitHub</a>
+                  <a class="nav-link" target="_blank" href=${data.blog}>Blog</a>
               </div>
           </div>
         </div>
       </header>
       </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h5>${data.bio}</h5>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <h5>Public Repositories</h5>
+              <h6>${data.public_repos}</h6>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <h5>GitHub Stars</h5>
+              <h6>${data.stars}</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <h5>Followers</h5>
+              <h6>${data.followers}</h6>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <h5>Following</h5>
+              <h6>${data.following}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="wrapper"></footer>
+
       </body>
     </html>`
 }
