@@ -1,43 +1,65 @@
 const fs = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
-const filename = "axiosData.js";
+const generateHTML = require("./generateHTML.js")
+const baseURL = "https://api.github.com/users/";
 
+let profile = {};
 
-inquirer
-  .prompt([
-  {
-    type: "input",
-    message: "Enter your GitHub username",
-    name: "username",
-  },
-  {
-    type: "list",
-    message: "What color scheme would you want?",
-    name: "color",
-    choices: ["red", "green", "blue", "pink"]
+  
+init();
+
+async function init() {
+  try {
+    await getUser();
+    console.log(generateHTML.generateHTML(profile));
+  } catch (error) {
+    console.log(error)
   }
-  ]).then(function({ username }) {
-    const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
+}
 
-  axios
-    .get(queryUrl)
-    .then(function(response) {
-      // console.log(response.data);
-      fs.writeFile(filename, JSON.stringify(response.data), function(err){
-        if (err) return console.log(err);
-      });
+async function getUser() {
+  try {
+    const {username, color} = await inquirer.prompt([
+      {
+        type: "input",
+        message: "Enter your GitHub username",
+        name: "username",
+      },
+      {
+        type: "list",
+        message: "What color scheme would you want?",
+        name: "color",
+        choices: ["red", "green", "blue", "pink"]
+      }
+    ]);
+      const { data } = await axios.get(`${baseURL}${username}?per_page=100`);
+      const { data: starData } = await axios.get(`${baseURL}${username}/starred`);
 
+      let {avatar_url: image, login, location, html_url: github, blog, bio, followers, following} = data;
+      profile = {
+        image,
+        username,
+        location,
+        github,
+        blog,
+        bio,
+        followers,
+        following,
+        color,
+      };
+      profile.stars = starData.length;    
+      
+  } catch (err) {
+    console.log(err);
+  }
+}
+  
 
-    });
-  });
-
-
-
-
-
-
-// const questions = [
+  
+  
+  
+  // const questions = [
   
 // ];
 

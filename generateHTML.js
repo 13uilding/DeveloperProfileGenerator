@@ -25,6 +25,11 @@ const colors = {
   }
 };
 
+module.exports = {
+  colors,
+  generateHTML,
+}
+
 function generateHTML(data) {
   return `<!DOCTYPE html>
     <html lang="en">
@@ -175,7 +180,7 @@ function generateHTML(data) {
       <body>
       <div class= "wrapper">
         <header class= "photo-header">
-            <img src=${data.profile.img}/>
+            <img src=${data.imgage}/>
         </header>
       </div>
       </body>
