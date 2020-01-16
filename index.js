@@ -1,7 +1,9 @@
 const fs = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
-const generateHTML = require("./generateHTML.js")
+const generateHTML = require("./generateHTML.js");
+const pdf = require("html-pdf");
+
 const baseURL = "https://api.github.com/users/";
 
 let profile = {};
@@ -12,8 +14,13 @@ init();
 async function init() {
   try {
     await getUser();
-    fs.writeFile("test.html", generateHTML.generateHTML(profile), err => {
+    await fs.writeFile("test.html", generateHTML.generateHTML(profile), err => {
       if (err) throw err;
+    });
+    var html = fs.readFileSync(`./test.html`, 'utf8');
+    var options = { format: 'letter' };
+    pdf.create(html, options).toFile('./test.pdf', function(err, res) {
+      if (err) return console.log(err);
     });
   } catch (error) {
     console.log(error)
