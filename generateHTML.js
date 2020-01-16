@@ -58,7 +58,7 @@ function generateHTML(data) {
             }
             .wrapper {
             background-color: ${colors[data.color].wrapperBackground};
-            padding-top: 100px;
+            padding: 100px 0;
             }
             body {
             background-color: white;
@@ -179,7 +179,7 @@ function generateHTML(data) {
       </head>
       <body>
       <div class= "wrapper">
-      </div>
+
       <header class= "photo-header">
         <div class="row">
           <div class="col">
@@ -238,7 +238,7 @@ function generateHTML(data) {
         </div>
       </div>
 
-      <footer class="wrapper"></footer>
+      </div>
 
       </body>
     </html>`
