@@ -179,6 +179,7 @@ function generateHTML(data) {
       </head>
       <body>
       <div class= "wrapper">
+      </div>
       <header class= "photo-header">
         <div class="row">
           <div class="col">
@@ -197,7 +198,7 @@ function generateHTML(data) {
           </div>
         </div>
       </header>
-      </div>
+
 
       <div class="container">
         <div class="row">

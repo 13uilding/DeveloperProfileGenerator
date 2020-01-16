@@ -22,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/13uilding/DeveloperProfileGenerator/issues"
   },
-  "homepage": "https://github.com/13uilding/DeveloperProfileGenerator#readme"
+  "homepage": "https://github.com/13uilding/DeveloperProfileGenerator#readme",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "html-pdf": "^2.2.0",
+    "inquirer": "^7.0.3"
+  }
 }
