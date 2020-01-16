@@ -25,6 +25,11 @@ const colors = {
   }
 };
 
+module.exports = {
+  colors,
+  generateHTML,
+}
+
 function generateHTML(data) {
   return `<!DOCTYPE html>
     <html lang="en">
@@ -173,7 +178,26 @@ function generateHTML(data) {
           </style>
       </head>
       <body>
-        
+      <div class= "wrapper">
+      <header class= "photo-header">
+        <div class="row">
+          <div class="col">
+              <img src=${data.image}/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+              <h1>Hello!</h1>
+              <h2>My GitHub username is ${data.username}</h2>
+              <div class="links-nav">
+                  <a class="nav-link" href=${data.locationURL}>${data.location}</a>
+                  <a class="nav-link" href=${data.github}>GitHub</a>
+                  <a class="nav-link" href=${data.blog}>Blog</a>
+              </div>
+          </div>
+        </div>
+      </header>
+      </div>
       </body>
     </html>`
 }
