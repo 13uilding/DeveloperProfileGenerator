@@ -47,6 +47,7 @@ async function getUser() {
         followers,
         following,
         color,
+        locationURL: "https://goo.gl/maps/xS54udcr7Q3ZvtF98", // Set up the api
       };
       profile.stars = starData.length;    
       
