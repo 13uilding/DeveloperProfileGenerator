@@ -187,6 +187,7 @@ function generateHTML(data) {
       </head>
       <body>
       <div class= "wrapper">
+
       <header class= "photo-header">
         <div class="row">
           <div class="col">
