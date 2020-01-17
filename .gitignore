@@ -1,8 +1,4 @@
 #Comment line
 ./test.pdf
-<<<<<<< HEAD
 node_modules
 ./node_modules
-=======
-node_modules
->>>>>>> master
