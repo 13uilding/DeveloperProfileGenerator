@@ -5,21 +5,17 @@ const pdf = require("html-pdf");
 const generateHTML = require("./generateHTML.js")
 const baseURL = "https://api.github.com/users/";
 
-
 let profile = {};
 const colors = generateHTML.colors;
-const fileHTML = "test.html";
-const filePDF = "test.pdf";
 
-  
 init();
 
 async function init() {
   await getUser();
     try {
-    fs.writeFile(fileHTML, generateHTML.generateHTML(profile), err => {
+    fs.writeFile(profile.username + ".html", generateHTML.generateHTML(profile), err => {
       if (err) throw err;
-      generatePDF(fileHTML, filePDF);
+      generatePDF(profile.username + ".html", profile.username + ".pdf");
     });
     
   } catch (error) {
