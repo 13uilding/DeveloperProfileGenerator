@@ -56,9 +56,15 @@ function generateHTML(data) {
             html, body, .wrapper {
             height: 100%;
             }
+            footer {
+              box-sizing: border-box;
+              width: 100%;
+              height: 100px;
+              background-color: ${colors[data.color].wrapperBackground};
+            }
             .wrapper {
             background-color: ${colors[data.color].wrapperBackground};
-            padding: 100px 0;
+            padding-top: 100px;
             }
             body {
             background-color: white;
@@ -138,6 +144,8 @@ function generateHTML(data) {
             margin-top: 10px;
             }
             .container {
+            z-index: 10;
+            background-color: white;
             padding: 50px;
             padding-left: 100px;
             padding-right: 100px;
@@ -236,10 +244,9 @@ function generateHTML(data) {
             </div>
           </div>
         </div>
+        </div>
+      <footer></footer>
       </div>
-
-      </div>
-
       </body>
     </html>`
 }

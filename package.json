@@ -1,7 +1,7 @@
 {
-  "name": "developerprofilegenerator",
+  "name": "hw9-developerprofilegenerator",
   "version": "1.0.0",
-  "description": "An application that asks the user for a github username and color scheme. Then an html and pdf file are created populating information about the user.",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,14 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/13uilding/DeveloperProfileGenerator.git"
   },
-  "keywords": [
-    "html",
-    "javascript",
-    "pdf",
-    "github",
-    "axios"
-  ],
-  "author": "Dan Brown",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/13uilding/DeveloperProfileGenerator/issues"
